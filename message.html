@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>???</title>
+    </head>
+    <body>
+        <button id="button" onclick="setmessage();">スタート</button>
+        <div id="message"></div>
+        <script>
+            let messagenumber = 7; // メッセージのインデックスを指定、現在は"悪徳のジャッジメント"（index 7）を指定
+            let message = [
+                "ヴェノマニア公の狂気",   // インデックス0
+                "悪食娘コンチータ",       // インデックス1
+                "悪ノ娘",                 // インデックス2
+                "悪ノ召使",               // インデックス3
+                "眠らせ姫からの贈り物",   // インデックス4
+                "五番目のピエロ",         // インデックス5
+                "円尾坂の仕立屋",         // インデックス6
+                "悪徳のジャッジメント",    // インデックス7 ← 現在のメッセージ
+                "ネメシスの銃口"         // インデックス8
+            ]
+
+            
+            function setmessage(){
+                const text = message[messagenumber];
+                let txt = "";
+                // for文で文字列を一文字ずつ取得
+                for (let i = 0; i < text.length; i++) {
+                    setTimeout(function() {
+                        txt = txt + text.charAt(i);
+                        document.getElementById('message').textContent = txt;
+                    }, i * 100); // 100msごとに次の文字を表示
+                }
+            }
+        </script>
+        <style>
+            #button{
+                height: calc(50px - 10px); /* 高さを200ピクセルに設定 */
+                width: 80px;
+                border: none;
+                border-radius: 50px;
+                background: #00a191;
+                color: #000;
+                padding: 5px;
+            }
+            #message{
+                border: solid 2px #000;
+                color:#fff;
+                height: calc(150px - 10px); /* 高さを200ピクセルに設定 */
+                width: 500px;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 10px; /* 内側に10pxの余白を設定 */
+                position: absolute;
+                top: 50px;
+                left: 0;
+            }
+        </style>
+    </body>
+</html>
